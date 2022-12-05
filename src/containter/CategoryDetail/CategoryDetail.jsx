@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Fragment } from "react";
+import React, { Component, Fragment, useEffect } from "react";
 import Product from "../../component/Home/Product/Product";
 import axios from 'axios';
 

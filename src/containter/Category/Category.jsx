@@ -1,31 +1,22 @@
-import React, { Component } from "react";
-import { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import axios from 'axios';
 
-export default class Category extends Component {
-  state = {
-    category: []
-  }
+import { UseTitle } from "../../component/UseTitle";
+import Categories from "../../component/Category/Category";
 
-  componentDidMount() {
-    axios.get('https://dummyjson.com/products/categories').then((result) => {
-      this.setState({
-        category: result.data
-      })
-    });
-  }
+const Category = () => {
+  const [category, setCategory] = useState([]);
 
-  render() {
-    return (
-      <Fragment>
-        <section className="section-featured--default ps-home--block categories">
-          <div className="container">
-            <div className="ps-block__header">
-              <h3 className="ps-block__title">Category</h3>
-            </div>
-          </div>
-        </section>
-      </Fragment>
-    )
-  }
+  useEffect(() => {
+    axios.get(`https://dummyjson.com/products/categories`).then((category) => setCategory(category.data));
+  }, []);
+
+  return (
+    <Fragment>
+      {UseTitle('Category')}
+      <Categories dataCategory={category}/>
+    </Fragment>
+  )
 }
+
+export default Category;

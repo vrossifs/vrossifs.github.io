@@ -4,17 +4,7 @@ import axios from 'axios';
 
 import ListProduct from "./ListProduct";
 
-const Product = () => {
-  const [data, setData] = useState([]);
-  const getData = async () => {
-    const { data } = await axios.get(`https://dummyjson.com/products`);
-    setData(data.products);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+const Product = (props) => {
   return (
     <Fragment>
       <section className="section-shop shop-categories--default">
@@ -26,7 +16,7 @@ const Product = () => {
             <div className="section-shop--grid">
               <div className="row m-0">
                 {
-                  data.slice(0,28).map(product => {
+                  props.dataProduct.slice(0,28).map(product => {
                     return <ListProduct storeName={product.brand} productId={product.id} productTaxonomy={product.title} productPrice={product.price} productImg={product.thumbnail} productUrl={product.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')} />
                   })
                 }

@@ -6,7 +6,7 @@ const ListProduct = (props) => {
   return (
     <div className="col-lg-3">
       <div className="ps-product--standard">
-        <a onClick={() => navigate("/detail/" + props.productId + "/" + props.productUrl)}>
+        <a onClick={() => navigate("/detail/" + props.productId + "/" + props.productUrl)} title={props.productTaxonomy}>
           <img className="ps-product__thumbnail_new" src={props.productImg} alt={props.productTaxonomy} title={props.productTaxonomy} style={{ width: '100%', height: '145px' }} />
         </a>
         <div className="ps-product__content">
