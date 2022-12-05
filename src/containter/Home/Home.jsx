@@ -18,7 +18,7 @@ const Home = () => {
     <Fragment>
       {UseTitle('Home')}
       <Category dataCategory={category}/>
-      <Product dataProduct={product}/>
+      <Product dataProduct={product} pageTitle={`Produk Terbaru`}/>
     </Fragment>
   )
 }
